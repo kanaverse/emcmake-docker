@@ -15,4 +15,4 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2
     bash cmake_install.sh --prefix=cmake --skip-license && \
     rm cmake_install.sh
 
-ENV PATH="/emsdk:/emsdk/node/14.18.2_64bit/bin:/emsdk/upstream/emscripten:/cmake/bin:${PATH}"
+ENV PATH="/emsdk:/emsdk/upstream/emscripten:/cmake/bin:${PATH}"
