@@ -16,3 +16,12 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.30.4/cmake-3.30.4
     rm cmake_install.sh
 
 ENV PATH="/emsdk:/emsdk/upstream/emscripten:/cmake/bin:${PATH}"
+
+# Prebuilding system libraries so that we don't have to do it again in each use case.
+RUN mkdir test-bar && \
+    touch test-bar/foo.c && \
+    cd test-bar && \
+    /emsdk/upstream/emscripten/emcc --use-port=zlib -pthread --bind foo.c -o alpha && \
+    /emsdk/upstream/emscripten/emcc --use-port=zlib -pthread --bind -O3 foo.c -o bravo && \
+    cd ../ && \
+    rm -rf test-bar
