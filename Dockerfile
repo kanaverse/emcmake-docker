@@ -12,7 +12,7 @@ RUN git clone https://github.com/emscripten-core/emsdk.git && \
     ./emsdk activate node-24.7.0-64bit
 
 # Grabbing CMake.
-RUN wget https://github.com/Kitware/CMake/releases/download/v4.2.0/cmake-4.2.0-linux-x86_64.sh -O cmake_install.sh && \
+RUN wget https://github.com/Kitware/CMake/releases/download/v4.1.3/cmake-4.1.3-linux-x86_64.sh -O cmake_install.sh && \
     mkdir cmake && \
     bash cmake_install.sh --prefix=cmake --skip-license && \
     rm cmake_install.sh
